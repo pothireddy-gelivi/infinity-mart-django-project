@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}<title>Home - InfinityMart</title>{% endblock %}
+{% block content %}
+<!-- ========================= SECTION MAIN  ========================= -->
+<section class="section-intro padding-y-sm my-4">
+    <div class="container">
+
+        <div class="intro-banner-wrap">
+            <img src="{% static 'images/banners/cover.jpg' %}" class="img-fluid rounded">
+        </div>
+
+    </div> <!-- container //  -->
+</section>
+<!-- ========================= SECTION MAIN END// ========================= -->
+
+<!-- ========================= SECTION  ========================= -->
+<section class="section-name padding-y-sm my-5">
+    <div class="container mt-5">
+
+        <header class="section-heading d-flex justify-content-between align-items-center mb-5">
+           
+            <h3 class="section-title">Popular products</h3>
+             <a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
+        </header><!-- sect-heading -->
+
+
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-3 mb-3">
+                <div class="card card-product-grid text-center">
+                    <a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url}}" class="img-fluid"> </a>
+                    <figcaption class="info-wrap ms-3">
+                        <a href="{{ product.get_url }}" class="title text-decoration-none">{{ product.product_name }}</a>
+                        <div class="price mt-1">${{ product.price }}</div> <!-- price-wrap.// -->
+                    </figcaption>
+                </div>
+            </div> <!-- col.// -->
+            {% endfor %}
+        </div> <!-- row.// -->
+
+    </div><!-- container // -->
+</section>
+{% endblock %}
