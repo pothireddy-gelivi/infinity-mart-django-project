@@ -7,7 +7,71 @@
     <div class="container">
 
         <div class="intro-banner-wrap">
-            <img src="{% static 'images/banners/cover.jpg' %}" class="img-fluid rounded">
+            <!-- <img src="{% static 'images/banners/cover.jpg' %}" class="img-fluid rounded"> -->
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4"
+                        aria-label="Slide 5"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000">
+                        <img src="{% static 'images/banners/cover1.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>First slide label</h5>
+                            <p>Some representative placeholder content for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{% static 'images/banners/cover.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Second slide label</h5>
+                            <p>Some representative placeholder content for the second slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{% static 'images/banners/cover2.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Third slide label</h5>
+                            <p>Some representative placeholder content for the third slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{% static 'images/banners/cover3.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Fourth slide label</h5>
+                            <p>Some representative placeholder content for the Fourth slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000">
+                        <img src="{% static 'images/banners/cover4.jpg' %}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Fifth slide label</h5>
+                            <p>Some representative placeholder content for the fifth slide.</p>
+                        </div>
+                    </div>
+                    
+                  
+                    
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
 
     </div> <!-- container //  -->
@@ -19,9 +83,9 @@
     <div class="container mt-5">
 
         <header class="section-heading d-flex justify-content-between align-items-center mb-5">
-           
+
             <h3 class="section-title">Popular products</h3>
-             <a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
+            <a href="{% url 'store' %}" class="btn btn-outline-primary float-right">See all</a>
         </header><!-- sect-heading -->
 
 
@@ -29,7 +93,8 @@
             {% for product in products %}
             <div class="col-md-3 mb-3">
                 <div class="card card-product-grid text-center">
-                    <a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url}}" class="img-fluid"> </a>
+                    <a href="{{ product.get_url }}" class="img-wrap"> <img src="{{ product.images.url}}"
+                            class="img-fluid mt-2"> </a>
                     <figcaption class="info-wrap ms-3">
                         <a href="{{ product.get_url }}" class="title text-decoration-none">{{ product.product_name }}</a>
                         <div class="price mt-1">₹ {{ product.price }}</div> <!-- price-wrap.// -->

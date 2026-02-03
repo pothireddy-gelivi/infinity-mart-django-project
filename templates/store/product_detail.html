@@ -6,7 +6,7 @@
     <div class="container">
 
         <!-- ============================ COMPONENT 1 ================================= -->
-        <div class="card">
+        <div class="card m-2 p-2">
             <div class="row no-gutters">
                 <aside class="col-md-6">
                     <article class="gallery-wrap">
@@ -69,8 +69,13 @@
                         </div> <!-- row.// -->
                         <hr>
                         {% if single_product.stock > 0 %}
-                        <a href="{% url 'add_cart' single_product.id %}" class="btn  btn-primary"> <span class="text">Add to cart</span>
-                            <i class="fas fa-shopping-cart"></i> </a>
+                            {% if in_cart %}
+                                <a href="#" class="btn  btn-success"> <span class="text me-2">Added to Cart</span><i class="bi bi-check-lg"></i> </a>
+                                <a href="{% url 'cart' %}" class="btn  btn-outline-primary"> <span class="text me-2">View Cart</span><i class="bi bi-eye-fill"></i> </a>
+                            {% else %}
+                                <a href="{% url 'add_cart' single_product.id %}" class="btn  btn-primary"> <span class="text">Add to cart</span>
+                                <i class="fas fa-shopping-cart"></i> </a>
+                            {% endif %}
                         {% else %}
                         <span class="badge bg-danger mb-3">Out of Stock</span>
                         {% endif %}
