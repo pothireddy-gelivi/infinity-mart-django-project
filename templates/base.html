@@ -114,7 +114,7 @@
                     <div class="text-start">
                         <small class="text-muted
                             ">Welcome {{ user.first_name }}!</small><br>
-                        <a href="#" class="text-decoration-none ">Dashboard</a> |
+                        <a href="{% url 'dashboard' %}" class="text-decoration-none ">Dashboard</a> |
                         <a href="{% url 'logout' %}" class="text-decoration-none ">Logout</a>
                     </div>
                     {% endif %}
@@ -165,7 +165,15 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-
+<script>
+    setTimeout(function () {
+        let alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            let bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        });
+    }, 4000); // 4 seconds
+</script>
 </body>
 
 </html>
